@@ -9,6 +9,7 @@
 
 ; return how many times each of the elemnts in lis1 appears in lis2
 ; the return value is a nested list of lists where each mini-list is of the form '(element count)
+; ((4 3) (3 2) (1 8) (0 3))
 (define (countAll lis1 lis2)
   (if (empty? lis1) '() (append (list (list (car lis1) (countElement lis2 (car lis1)))) (countAll (cdr lis1) lis2))))
 
@@ -29,3 +30,13 @@
 (define (mode lis)
   (let ([counts (countAll (set->list (list->set lis)) lis)])
     (findMaxMode counts)))
+
+; equivalent without using let
+(define (mode lis)
+  (findMaxMode (countAll (set->list (list->set lis)) lis)))
+
+; part 2 ... (findMax '(1 2 3 0))
+; part 3 ... (findMaxDeep '(1 (2 3) 0))
+
+; part 4 - custom sort
+
