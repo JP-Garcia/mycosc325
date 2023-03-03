@@ -10,6 +10,10 @@ public abstract class Shape {
         this.color = DEFAULTCOLOR;
     }
 
+    public Shape(String color) {
+        this.color = color;
+    }
+
     abstract public void draw();
 
 }
