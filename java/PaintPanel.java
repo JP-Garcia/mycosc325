@@ -39,11 +39,11 @@ public class PaintPanel extends JPanel {
 
         // draw the mouth (black oval ... partially hidden)        
         g.setColor(Color.BLACK);
-        g.drawOval(centerx-mouth/2, centery + (int) Math.round(nose*2.5), mouth, nose);
+        g.drawOval(centerx-mouth/2, h-thirdy, mouth, nose);
 
         // hide the top part of the mouth to make it look like a smile
         g.setColor(Color.WHITE);
-        g.fillRect(centerx-mouth/2, centery + (int) Math.round(nose*2), mouth, 40);
+        g.fillRect(centerx-mouth/2, h-thirdy-20, mouth, 40);
     }  
 
 }
