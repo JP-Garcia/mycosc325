@@ -2,13 +2,9 @@ package shapes;
 
 public class Square extends Rectangle {
     
-    public Square(int sidelength, String color) {
-        super(sidelength, sidelength, color);
+    public Square(int x, int y, int sidelength, String color) {
+        super(x, y, sidelength, sidelength, color);
     }
 
-    @Override
-    public void draw() {
-        System.out.println("drawing a " + width + "x" + height + " " + color + " square");
-    }
     
 }

@@ -2,11 +2,21 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
+
+import shapes.Rectangle;
 import shapes.Shape;
 
-public class PaintPanel extends JPanel {
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+public class PaintPanel extends JPanel implements MouseListener {
     
     protected ArrayList<Shape> shapes = new ArrayList<>();
+
+    public PaintPanel() {
+        super();
+        addMouseListener(this);
+    }
 
     @Override
     public void paint(Graphics g) {
@@ -44,6 +54,39 @@ public class PaintPanel extends JPanel {
         // hide the top part of the mouth to make it look like a smile
         g.setColor(Color.WHITE);
         g.fillRect(centerx-mouth/2, h-thirdy-20, mouth, 40);
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        // pay me now ... calculate the top left corner from the mouse x, y
+        // hard-coded example 40 x 10 rectangle
+        int mousex = e.getX();
+        int mousey = e.getY();
+        int topleftx = mousex - 40/2;
+        int toplefty = mousey - 10/2;
+        System.out.println(mousex + " " + mousey);
+        Rectangle r = new Rectangle(topleftx, toplefty, 40, 10, "#ff0000");
+        r.draw(getGraphics());
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // handled in mouseClicked
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // handled in mouseClicked
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // ignored
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // ignored
     }  
 
 }

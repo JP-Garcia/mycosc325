@@ -17,25 +17,21 @@ import java.awt.event.ActionEvent;
 
 public class ShapeSwingProgram extends JFrame implements ActionListener {
 
-    private static PaintPanel paintPanel = new PaintPanel();
+    private PaintPanel paintPanel = new PaintPanel();
 
     public ShapeSwingProgram(String title) {
         super(title);
-    }
-
-    public static void main(String[] args) {
-        ShapeSwingProgram paintprogram = new ShapeSwingProgram("Shape Dropper Paint Program");
-        paintprogram.setSize(800, 600);
-        paintprogram.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        paintprogram.setLayout(new BorderLayout());        
+        this.setSize(800, 600);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLayout(new BorderLayout());        
         JPanel buttonPanel = new JPanel(new FlowLayout());
         JButton button1 = new JButton("button1");
-        button1.addActionListener(paintprogram);
+        button1.addActionListener(this);
         buttonPanel.add(button1);
         JButton button2 = new JButton("button2");
-        button2.addActionListener(paintprogram);
+        button2.addActionListener(this);
         buttonPanel.add(button2);
-        paintprogram.add(buttonPanel, BorderLayout.PAGE_START);
+        this.add(buttonPanel, BorderLayout.PAGE_START);
         JMenuBar menuBar;
         JMenu menu, submenu;
         JMenuItem menuItem;
@@ -51,34 +47,34 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
 
         //a group of file-related menu items 
         menuItem = new JMenuItem("Open", MenuKeyEvent.VK_O);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Save", MenuKeyEvent.VK_S);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Save As...", MenuKeyEvent.VK_A);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Exit", MenuKeyEvent.VK_X);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
 
         //Build our shape menu
         menu = new JMenu("Shape");
         menuItem = new JMenuItem("Rectangle", MenuKeyEvent.VK_R);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Square", MenuKeyEvent.VK_S);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Oval", MenuKeyEvent.VK_O);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Circle", MenuKeyEvent.VK_C);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
         menuItem = new JMenuItem("Triangle", MenuKeyEvent.VK_T);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         menu.add(menuItem);
 
         // Create the color submenu
@@ -88,35 +84,39 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         // create a group so you can only select one color at a time
         ButtonGroup group = new ButtonGroup();
         menuItem = new JMenuItem("Red", MenuKeyEvent.VK_R);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         group.add(menuItem);
         submenu.add(menuItem);
         menuItem = new JMenuItem("Yellow", MenuKeyEvent.VK_Y);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         group.add(menuItem);
         submenu.add(menuItem);
         menuItem = new JMenuItem("Green", MenuKeyEvent.VK_G);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         group.add(menuItem);
         submenu.add(menuItem);
         menuItem = new JMenuItem("Black", MenuKeyEvent.VK_B);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         group.add(menuItem);
         submenu.add(menuItem);
         menuItem = new JMenuItem("White", MenuKeyEvent.VK_W);
-        menuItem.addActionListener(paintprogram);
+        menuItem.addActionListener(this);
         group.add(menuItem);
         submenu.add(menuItem);
 
         // Turn submenu into an actual submenu by adding it to another menu (specifically, our second menu)
         menu.add(submenu);
         menuBar.add(menu);
+        this.setJMenuBar(menuBar);
 
         paintPanel.setPreferredSize(new Dimension(500,500));
         paintPanel.setBackground(Color.WHITE);
-        paintprogram.getContentPane().add(paintPanel, BorderLayout.CENTER);
+        this.getContentPane().add(paintPanel, BorderLayout.CENTER);
 
-        paintprogram.setJMenuBar(menuBar);
+    }
+
+    public static void main(String[] args) {
+        ShapeSwingProgram paintprogram = new ShapeSwingProgram("Shape Dropper Paint Program");
         paintprogram.setVisible(true);
     }
 

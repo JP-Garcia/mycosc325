@@ -1,5 +1,7 @@
 package shapes;
 
+import java.awt.Graphics;
+
 public class Rectangle extends Shape {
 
     protected int width  = 10; // default width is 10
@@ -9,15 +11,17 @@ public class Rectangle extends Shape {
         // nothing to do, but required by java!
     }
 
-    public Rectangle(int width, int height, String color) {
-        super(color);
+    public Rectangle(int x, int y, int width, int height, String color) {
+        super(x, y, color);
         this.width = width;
         this.height = height;
     }
 
     @Override
-    public void draw() {
+    public void draw(Graphics g) {
         System.out.println("drawing a " + width + "x" + height + " " + color + " rectangle");
+        g.setColor(color);
+        g.drawRect(x, y, width, height);
     }
     
 }

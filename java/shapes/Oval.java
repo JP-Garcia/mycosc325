@@ -1,18 +1,20 @@
 package shapes;
 
+import java.awt.Graphics;
+
 public class Oval extends Shape {
 
     protected int width = 10;
     protected int height = 5;
 
-    public Oval(int width, int height, String color) {
-        super(color);
+    public Oval(int x, int y, int width, int height, String color) {
+        super(x, y, color);
         this.width = width;
         this.height = height;
     }
 
     @Override
-    public void draw() {
+    public void draw(Graphics g) {
         System.out.println("drawing a " + width + "x" + height + " " + color + " oval");
     }
     
