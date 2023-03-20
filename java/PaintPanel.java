@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
-import shapes.Rectangle;
+import shapes.Rectangle; 
 import shapes.Shape;
 
 import java.awt.event.MouseEvent;

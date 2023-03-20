@@ -23,7 +23,11 @@ public class Triangle extends Shape {
 
     @Override
     public void draw(Graphics g) {
-        System.out.println("drawing some sort of " + color + " triangle");
+        if (g==null)
+            System.out.println("drawing some sort of " + color + " triangle");
+        else {
+            // add your code for drawing the triangle here
+        }
     }
     
 }

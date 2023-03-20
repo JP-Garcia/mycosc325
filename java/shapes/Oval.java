@@ -15,7 +15,11 @@ public class Oval extends Shape {
 
     @Override
     public void draw(Graphics g) {
-        System.out.println("drawing a " + width + "x" + height + " " + color + " oval");
+        if (g==null)
+            System.out.println("drawing a " + width + "x" + height + " " + color + " oval");
+        else {
+            // add your code for drawing an Oval here
+        }
     }
     
 }

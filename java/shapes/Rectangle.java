@@ -19,9 +19,12 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw(Graphics g) {
-        System.out.println("drawing a " + width + "x" + height + " " + color + " rectangle");
-        g.setColor(color);
-        g.drawRect(x, y, width, height);
+        if (g==null)
+            System.out.println("drawing a " + width + "x" + height + " " + color + " rectangle");
+        else {
+            g.setColor(color);
+            g.drawRect(x, y, width, height);
+        }
     }
     
 }
