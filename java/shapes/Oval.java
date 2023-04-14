@@ -13,12 +13,14 @@ public class Oval extends Shape {
         this.height = height;
     }
 
+
     @Override
     public void draw(Graphics g) {
         if (g==null)
             System.out.println("drawing a " + width + "x" + height + " " + color + " oval");
         else {
-            // add your code for drawing an Oval here
+            g.setColor(color);
+            g.drawOval(x, y, width, height);
         }
     }
     

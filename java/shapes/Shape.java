@@ -3,7 +3,7 @@ package shapes;
 import java.awt.Graphics;
 import java.awt.Color;
 
-public abstract class Shape {
+public abstract class Shape{
 
     public static final Color DEFAULTCOLOR = Color.RED;
     protected Color color; // the data that is common to ALL shapes
@@ -15,6 +15,7 @@ public abstract class Shape {
         this.color = DEFAULTCOLOR;
     }
 
+    
     public Shape(int x, int y, String color) {
         this.x = x;
         this.y = y;

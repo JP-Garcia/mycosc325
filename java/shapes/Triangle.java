@@ -26,7 +26,12 @@ public class Triangle extends Shape {
         if (g==null)
             System.out.println("drawing some sort of " + color + " triangle");
         else {
-            // add your code for drawing the triangle here
+            g.setColor(color);
+            // for (int i = 0; i < x.length; i++) {
+            g.drawLine(x1, y1, x2, y2);
+            g.drawLine(x2, y2, x3, y3);
+            g.drawLine(x3, y3, x1, y1);
+            // }
         }
     }
     
