@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.lang.model.util.Elements.Origin;
+// import javax.lang.model.util.Elements.Origin;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -46,8 +46,8 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         super(title);
         this.setSize(800, 600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(new BorderLayout());   
-        
+        this.setLayout(new BorderLayout());
+
 /*
         JPanel buttonPanel = new JPanel(new FlowLayout());
         JButton buttonUndo = new JButton("undo");
@@ -75,7 +75,7 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         menu.setMnemonic(MenuKeyEvent.VK_F);
         menuBar.add(menu);
 
-        //a group of file-related menu items 
+        //a group of file-related menu items
         menuItem = new JMenuItem("Open", MenuKeyEvent.VK_O);
         menuItem.addActionListener(this);
         menu.add(menuItem);
@@ -130,9 +130,9 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         menuBar.add(menu);
         this.setJMenuBar(menuBar);
 
-        // -- CHANGED color into a seperate menu by JP
+        // -- CHANGED color into a separate menu by JP
 
-        // menu.addSeparator();        
+        // menu.addSeparator();
         // submenu = new JMenu("Color");
         menu = new JMenu("Color");
 
@@ -141,14 +141,14 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         rbMenuItem = new JRadioButtonMenuItem("Red");
         rbMenuItem.setBackground(Color.RED);
         rbMenuItem.addActionListener(this);
-        rbMenuItem.setSelected(true); // copy to rectange?
+        rbMenuItem.setSelected(true); // copy to rectangle?
         group.add(rbMenuItem);
         // submenu.add(rbMenuItem);
         menu.add(rbMenuItem);
         rbMenuItem = new JRadioButtonMenuItem("Yellow");
         rbMenuItem.setBackground(Color.YELLOW);
         rbMenuItem.addActionListener(this);
-        rbMenuItem.setSelected(true); // copy to rectange?
+        rbMenuItem.setSelected(true); // copy to rectangle?
         group.add(rbMenuItem);
         // submenu.add(rbMenuItem);
         menu.add(rbMenuItem);
@@ -206,8 +206,8 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        ShapeSwingProgram paintprogram = new ShapeSwingProgram("John Paul's Shape Painting Program");
-        paintprogram.setVisible(true);
+        ShapeSwingProgram paintProgram = new ShapeSwingProgram("John Paul's Shape Painting Program");
+        paintProgram.setVisible(true);
     }
 
     @Override
@@ -265,14 +265,14 @@ public class ShapeSwingProgram extends JFrame implements ActionListener {
         }
     }
 
-    public void save(String formatname) {
+    public void save(String formatName) {
         BufferedImage bImg = new BufferedImage(paintPanel.getWidth(), paintPanel.getHeight(), BufferedImage.TYPE_INT_RGB);
         Graphics2D cg = bImg.createGraphics();
         paintPanel.paintAll(cg);
         try {
-                if (ImageIO.write(bImg, formatname, new File("./output_image."+formatname)))
+                if (ImageIO.write(bImg, formatName, new File("./output_image."+formatName)))
                 {
-                    System.out.println("-- saved as "+formatname);
+                    System.out.println("-- saved as "+formatName);
                 }
         } catch (IOException e) {
                 // TODO Auto-generated catch block
